@@ -10,7 +10,6 @@
   <link rel="stylesheet" type="text/css" href="http://webfonts.zoho.com/css?family=Tenor%20Sans/Manrope:400,500,600,700,800&display=swap">
 
   <style>
-    /* Reset scroll issues */
     html, body {
       margin: 0 !important;
       padding: 0 !important;
@@ -30,12 +29,10 @@
       transition: color 0.3s ease, border-bottom 0.3s ease;
       padding-bottom: 4px;
     }
-
     .nav-link:hover {
       color: #ffcc00;
       border-bottom: 2px solid #ffcc00;
     }
-
     .nav-link.active {
       border-bottom: 3px solid #ffcc00;
       color: #ffcc00;
@@ -53,13 +50,11 @@
       text-align: center;
       padding: 120px 20px 60px;
     }
-
     #omar-ai-hero h1 {
       font-size: 42px;
       margin-bottom: 15px;
       font-weight: 800;
     }
-
     #omar-ai-hero p {
       font-style: italic;
       margin-top: 10px;
@@ -69,83 +64,141 @@
     }
 
     /* Gradio Chat */
-   .chat-container {
-  width: 95%;
-  max-width: 1000px;       /* cap width for readability */
-  margin: 60px auto;       /* auto = centers horizontally */
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center; /* center inner gradio-app */
-  align-items: center;     /* vertically align inside box */
-}
-
-.chat-container gradio-app {
-  width: 100% !important;
-  max-width: 900px;        /* don’t get too wide */
-  height: 80vh !important; /* 80% of viewport height */
-  border: none;
-  display: block;
-  margin: 0 auto;          /* makes sure it’s centered */
-}
+    .chat-container {
+      width: 95%;
+      max-width: 1000px;
+      margin: 60px auto;
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .chat-container gradio-app {
+      width: 100% !important;
+      max-width: 900px;
+      height: 80vh !important;
+      border: none;
+      display: block;
+      margin: 0 auto;
+    }
 
     /* Contact Us */
     #contact-us {
       background: #000;
       padding: 100px 20px;
     }
-
     #contact-us h2 {
       font-size: 32px;
       margin-bottom: 15px;
       color: #c3bfbf;
     }
-
     #contact-us p,
     #contact-us h4 {
       font-size: 18px;
       color: #fff;
       margin: 8px 0;
     }
-
-    #contact-us strong {
-      color: #ffcc00;
+    .contact-block {
+      display: flex;
+      align-items: flex-start;
+      margin: 25px 0;
     }
+    .contact-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .contact-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #fff;
+    }
+    .contact-block h4 {
+      color: #c3bfbf;
+      margin: 0 0 5px 0;
+      font-size: 18px;
+    }
+    .contact-block p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
 
-    /* Icon + text blocks */
-    /* Contact Us */
-.contact-block {
+<!-- NAVBAR -->
+<nav id="mainNav" style="
   display: flex;
-  align-items: flex-start;
-  margin: 25px 0;
-}
-
-.contact-icon {
-  width: 28px;
-  height: 28px;
-  margin-right: 15px;
-  flex-shrink: 0;
-}
-
-.contact-icon svg {
+  justify-content: flex-end;
+  padding: 15px 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  fill: #fff;
-}
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 999;">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="omar-ai.html" class="nav-link">Omar AI</a>
+  <a href="#contact-us" class="nav-link">Contact Us</a>
+</nav>
 
-.contact-block h4 {
-  color: #c3bfbf;
-  margin: 0 0 5px 0;
-  font-size: 18px;
-}
+<!-- HERO -->
+<section id="omar-ai-hero">
+  <h1>👉 Chat to Omar Now!</h1>
+  <p>
+    It is actually his AI! How cool is that huh?!<br>
+    Ask him about his career, goals, likes, dislikes, personality. Chat and have fun!
+  </p>
 
-.contact-block p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.4;
-}
+  <div class="chat-container">
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"></script>
+    <gradio-app src="https://omarabouelela-careeragent.hf.space"></gradio-app>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact-us">
+  <h2>Reach Out to Us</h2>
+  <p>We’re just a message away. Let’s build the future together.</p>
+
+  <div class="contact-block">
+    <div class="contact-icon">
+      <svg viewBox="0 0 384 512"><path d="M172.3 501.7C27 291 0 269.4 0 192 0 85.9 85.9 0 192 0s192 85.9 192 192c0 77.4-27 99-172.3 309.7-9.5 13.8-29.9 13.8-39.4 0zM192 272c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80z"/></svg>
+    </div>
+    <div>
+      <h4>Egypt</h4>
+      <p>Alexandria | Cairo | Online Worldwide</p>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <div class="contact-icon">
+      <svg viewBox="0 0 512 512"><path d="M511.1 387.3l-23.6-101c-3.1-13.2-13.7-23.1-27.1-25.2l-91.5-15.5c-12.3-2.1-24.9 2.7-32.6 12.3l-30.2 37.8c-49.9-25.7-90.6-66.4-116.3-116.3l37.8-30.2c9.6-7.7 14.4-20.3 12.3-32.6L274 51.6c-2.1-13.4-12-24-25.2-27.1L147.8 1c-14.6-3.4-29.7 4.2-36.1 18.2l-40 87.3c-6.4 14 1.4 30.3 15.8 36.3l87.5 36.6c10.2 4.2 16.9 14.1 16.9 25.1v23.4c0 141.4 114.6 256 256 256h23.4c11 0 20.9-6.7 25.1-16.9l36.6-87.5c6-14.4-2.3-30.7-16.4-36.1z"/></svg>
+    </div>
+    <div>
+      <h4>Phone</h4>
+      <p>+20-109-3920761</p>
+      <p>+20-358-52057</p>
+    </div>
+  </div>
+
+  <div class="contact-block">
+    <div class="contact-icon">
+      <svg viewBox="0 0 512 512"><path d="M502.3 190.8l-192-160C302.9 27.6 295.5 24 288 24s-14.9 3.6-22.3 6.8l-192 160C66.5 197.9 64 204.8 64 212.3V448c0 17.7 14.3 32 32 32h320c17.7 0 32-14.3 32-32V212.3c0-7.5-2.5-14.4-7.7-21.5z"/></svg>
+    </div>
+    <div>
+      <h4>Email</h4>
+      <p>hello@sirat.tech</p>
+      <p>support@sirat.tech</p>
+    </div>
+  </div>
+</section>
 
 <script>
   // Navbar background effect
@@ -171,7 +224,6 @@
       }
     });
   });
-
   function smoothScrollTo(targetY, duration) {
     const startY = window.pageYOffset;
     const diff = targetY - startY;
@@ -189,7 +241,6 @@
   // Active link highlighting
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = [...document.querySelectorAll("section[id], div[id]")];
-
   function setActiveLink() {
     let current = "home";
     sections.forEach(sec => {
@@ -198,7 +249,6 @@
         current = sec.id;
       }
     });
-
     navLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === "#" + current ||
@@ -208,7 +258,6 @@
       }
     });
   }
-
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
 </script>
