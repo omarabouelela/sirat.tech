@@ -7,7 +7,7 @@
 
   <style>
     /* Navbar links */
-    .nav-link {
+.nav-link {
   margin-left: 20px;
   text-decoration: none;
   color: #fff;
@@ -16,19 +16,26 @@
   padding-bottom: 4px;
 }
 
+.nav-link:hover {
+  color: #ffcc00;                /* gold hover */
+  border-bottom: 2px solid #ffcc00;
+}
+
 .nav-link.active {
-  border-bottom: 3px solid #ffcc00; /* gold underline highlight */
-  color: #fff;
+  border-bottom: 3px solid #ffcc00; /* gold underline */
+  color: #ffcc00;                   /* gold text */
 }
 
 
     /* Reset unwanted scrollbars */
-    html, body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background: #000;
-    }
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;   /* stop sideways scroll */
+  overflow-y: auto;     /* only show vertical scroll if content really needs it */
+  background: #000;     /* match background if needed */
+}
+
 
     /* Section styling */
     section {
