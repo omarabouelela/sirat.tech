@@ -5,43 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omar AI - Sirat Technologies</title>
 
+  <!-- Fonts (match index.html) -->
+  <link rel="preconnect" href="http://webfonts.zoho.com/">
+  <link rel="stylesheet" type="text/css" href="http://webfonts.zoho.com/css?family=Tenor%20Sans/Manrope:400,500,600,700,800&display=swap">
+
   <style>
+    /* Reset scroll issues */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #000;
+      font-family: 'Manrope', sans-serif;
+      color: #fff;
+    }
+
     /* Navbar links */
-  /* Reset scroll issues */
-  html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow-x: hidden;   /* stop sideways scroll */
-    overflow-y: auto;     /* only vertical if needed */
-    background: #000;     /* keep background consistent */
-  }
+    .nav-link {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      padding-bottom: 4px;
+    }
 
-  /* Navbar links */
-  .nav-link {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 4px;
-  }
+    .nav-link:hover {
+      color: #ffcc00;
+      border-bottom: 2px solid #ffcc00;
+    }
 
-  /* Hover effect */
-  .nav-link:hover {
-    color: #ffcc00;                /* gold hover */
-    border-bottom: 2px solid #ffcc00;
-  }
-
-  /* Active highlight */
-  .nav-link.active {
-    border-bottom: 3px solid #ffcc00; /* gold underline */
-    color: #ffcc00;                   /* gold text */
-  }
-
-    /* Section styling */
-    section {
-      padding: 100px 20px;
-      text-align: center;
+    .nav-link.active {
+      border-bottom: 3px solid #ffcc00;
+      color: #ffcc00;
     }
 
     /* Hero */
@@ -53,28 +50,65 @@
       align-items: center;
       background: url('ChatGPT%20Image%20Jul%2022-%202025-%2012_53_04%20AM.png') no-repeat center center;
       background-size: cover;
-      color: #fff;
+      text-align: center;
+      padding: 120px 20px 60px;
     }
 
-    /* Gradio Chat container */
-.chat-container {
-  width: 95%;              /* nearly full width */
-  max-width: 1400px;       /* cap so it doesn’t stretch too much on ultra-wide screens */
-  margin: 40px auto;
-  background: #111;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-}
+    #omar-ai-hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      font-weight: 800;
+    }
 
-.chat-container gradio-app {
-  width: 100% !important;
-  height: 80vh !important;  /* take 80% of viewport height */
-  border: none;
-}
+    #omar-ai-hero p {
+      font-style: italic;
+      margin-top: 10px;
+      color: #ccc;
+      font-size: 18px;
+      max-width: 800px;
+    }
 
+    /* Gradio Chat */
+    .chat-container {
+      width: 95%;
+      max-width: 1400px;
+      margin: 40px auto;
+      background: #000;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    }
 
-    /* Remove vertical dashes (Zoho adds them sometimes) */
+    .chat-container gradio-app {
+      width: 100% !important;
+      height: 80vh !important;
+      border: none;
+    }
+
+    /* Contact Us section (aligned with index.html style) */
+    #contact-us {
+      background: #000;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    #contact-us h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #c3bfbf;
+    }
+
+    #contact-us p {
+      font-size: 18px;
+      color: #fff;
+      margin: 8px 0;
+    }
+
+    #contact-us strong {
+      color: #ffcc00;
+    }
+
+    /* Remove Zoho vertical dashes */
     hr, .zpdivider-container {
       display: none !important;
     }
@@ -103,22 +137,20 @@
 <!-- HERO -->
 <section id="omar-ai-hero">
   <h1>👉 Chat to Omar Now!</h1>
-  <p style="font-style: italic; margin-top: 10px; color: #ccc;">
+  <p>
     It is actually his AI! How cool is that huh?!<br>
     Ask him about his career, goals, likes and dislikes, personality. Chat and have fun!
   </p>
 
-  <!-- Chat box -->
+  <!-- Chat -->
   <div class="chat-container">
-    <script type="module"
-      src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js">
-    </script>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"></script>
     <gradio-app src="https://omarabouelela-careeragent.hf.space"></gradio-app>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact-us" style="background:#000; color:#fff;">
+<section id="contact-us">
   <h2>Reach Out to Us</h2>
   <p>We’re just a message away. Let’s build the future together.</p>
   <p><strong>Email:</strong> hello@sirat.tech</p>
@@ -130,7 +162,7 @@
   window.addEventListener("scroll", function() {
     const nav = document.getElementById("mainNav");
     if (window.scrollY > 50) {
-      nav.style.background = "#111";  
+      nav.style.background = "#111";
       nav.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
     } else {
       nav.style.background = "transparent";
@@ -154,7 +186,6 @@
     const startY = window.pageYOffset;
     const diff = targetY - startY;
     let start;
-
     function step(timestamp) {
       if (!start) start = timestamp;
       const time = timestamp - start;
@@ -170,7 +201,7 @@
   const sections = [...document.querySelectorAll("section[id], div[id]")];
 
   function setActiveLink() {
-    let current = "home"; // default to home at top
+    let current = "home";
     sections.forEach(sec => {
       const rect = sec.getBoundingClientRect();
       if (rect.top <= 150 && rect.bottom >= 150) {
@@ -191,7 +222,6 @@
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
 </script>
-
 
 </body>
 </html>
