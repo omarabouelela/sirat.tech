@@ -69,21 +69,27 @@
     }
 
     /* Gradio Chat */
-    .chat-container {
-      width: 95%;
-      max-width: 1400px;
-      margin: 40px auto;
-      background: #000;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-    }
+   .chat-container {
+  width: 95%;
+  max-width: 1000px;       /* cap width for readability */
+  margin: 60px auto;       /* auto = centers horizontally */
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center; /* center inner gradio-app */
+  align-items: center;     /* vertically align inside box */
+}
 
-    .chat-container gradio-app {
-      width: 100% !important;
-      height: 80vh !important;
-      border: none;
-    }
+.chat-container gradio-app {
+  width: 100% !important;
+  max-width: 900px;        /* don’t get too wide */
+  height: 80vh !important; /* 80% of viewport height */
+  border: none;
+  display: block;
+  margin: 0 auto;          /* makes sure it’s centered */
+}
 
     /* Contact Us */
     #contact-us {
@@ -112,8 +118,8 @@
     /* Contact Us */
 .contact-block {
   display: flex;
-  align-items: center;
-  margin: 20px 0;
+  align-items: flex-start;
+  margin: 25px 0;
 }
 
 .contact-icon {
@@ -121,9 +127,6 @@
   height: 28px;
   margin-right: 15px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .contact-icon svg {
@@ -135,84 +138,14 @@
 .contact-block h4 {
   color: #c3bfbf;
   margin: 0 0 5px 0;
+  font-size: 18px;
 }
 
 .contact-block p {
   margin: 0;
   font-size: 16px;
+  line-height: 1.4;
 }
-  </style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav id="mainNav" style="
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 25px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
-  z-index: 999;
-">
-  <a href="index.html" class="nav-link">Home</a>
-  <a href="omar-ai.html" class="nav-link">Omar AI</a>
-  <a href="#contact-us" class="nav-link">Contact Us</a>
-</nav>
-
-<!-- HERO -->
-<section id="omar-ai-hero">
-  <h1>👉 Chat to Omar Now!</h1>
-  <p>
-    It is actually his AI! How cool is that huh?!<br>
-    Ask him about his career, goals, likes and dislikes, personality. Chat and have fun!
-  </p>
-
-  <!-- Chat -->
-  <div class="chat-container">
-    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"></script>
-    <gradio-app src="https://omarabouelela-careeragent.hf.space"></gradio-app>
-  </div>
-</section>
-
-<!-- CONTACT (copied style from index.html) -->
-<section id="contact-us">
-  <h2>Reach Out to Us</h2>
-  <p>We’re just a message away. Let’s build the future together.</p>
-
-  <!-- Location -->
-  <div class="contact-block">
-<div class="contact-icon">
-    <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M172.3 501.7C27 291 0 269.4 0 192 0 86 86 0 192 0s192 86 192 192c0 77.4-27 99-172.3 309.7-9.5 13.8-29.9 13.8-39.4 0zM192 272c44.2 0 80-35.8 80-80s-35.8-80-80-80-80 35.8-80 80 35.8 80 80 80z"/></svg>
-    <div>
-      <h4>Egypt</h4>
-      <p>Alexandria | Cairo | Online Worldwide</p>
-    </div>
-  </div>
-
-  <!-- Phone -->
-  <div class="contact-block">
-<div class="contact-icon">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-1.313-.259-2.613-.762-3.827A10.006 10.006 0 0012 2v2c2.673 0 5.2 1.053 7.071 2.929C20.947 8.8 22 11.327 22 14h2c0-2.673-1.053-5.2-2.929-7.071A9.956 9.956 0 0012 2V0C5.373 0 0 5.373 0 12h2c0-5.523 4.477-10 10-10z"/><path d="M2 10v5c0 7.627 6.373 14 14 14h5c.552 0 1-.448 1-1v-5c0-.552-.448-1-1-1h-3c-1.657 0-3-1.343-3-3v-3c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1z"/></svg>
-    <div>
-      <h4>Phone</h4>
-      <p>+20-109-3920761<br>+20-358-52057</p>
-    </div>
-  </div>
-
-  <!-- Email -->
-  <div class="contact-block">
-<div class="contact-icon">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5.838C3 5.286 3.448 4.838 4 4.838h16c.552 0 1 .448 1 1v11.324c0 1.104-.896 2-2 2H5c-1.105 0-2-.896-2-2V5.838zm2 2.224v9.1h14v-9.1l-7 6.88c-.391.39-1.024.39-1.415 0l-7-6.88z"/></svg>
-    <div>
-      <h4>Email</h4>
-      <p>hello@sirat.tech<br>support@sirat.tech</p>
-    </div>
-  </div>
-</section>
 
 <script>
   // Navbar background effect
