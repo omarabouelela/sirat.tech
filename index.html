@@ -3,26 +3,36 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 <style>
-.nav-link {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom: 4px;
-}
+  /* Reset scroll issues */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;   /* stop sideways scroll */
+    overflow-y: auto;     /* only vertical if needed */
+    background: #000;     /* keep background consistent */
+  }
 
-.nav-link:hover {
-  color: #ffcc00;                /* gold hover */
-  border-bottom: 2px solid #ffcc00;
-}
+  /* Navbar links */
+  .nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 4px;
+  }
 
-.nav-link.active {
-  border-bottom: 3px solid #ffcc00; /* gold underline */
-  color: #ffcc00;                   /* gold text */
-}
+  /* Hover effect */
+  .nav-link:hover {
+    color: #ffcc00;                /* gold hover */
+    border-bottom: 2px solid #ffcc00;
+  }
 
-
+  /* Active highlight */
+  .nav-link.active {
+    border-bottom: 3px solid #ffcc00; /* gold underline */
+    color: #ffcc00;                   /* gold text */
+  }
 </style>
 
 
@@ -38,15 +48,6 @@
     overflow: hidden !important;
     visibility: hidden !important;
   }
-
-  /* Remove padding/margin from html and body */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;   /* stop sideways scroll */
-  overflow-y: auto;     /* only show vertical scroll if content really needs it */
-  background: #000;     /* match background if needed */
-}
 
 
   /* Remove bottom spacing injected by Zoho styles */
