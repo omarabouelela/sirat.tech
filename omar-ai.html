@@ -57,21 +57,22 @@
     }
 
     /* Gradio Chat container */
-    .chat-container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #111;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-    }
+.chat-container {
+  width: 95%;              /* nearly full width */
+  max-width: 1400px;       /* cap so it doesn’t stretch too much on ultra-wide screens */
+  margin: 40px auto;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
 
-    .chat-container iframe,
-    .chat-container gradio-app {
-      width: 100% !important;
-      height: 600px !important;
-      border: none;
-    }
+.chat-container gradio-app {
+  width: 100% !important;
+  height: 80vh !important;  /* take 80% of viewport height */
+  border: none;
+}
+
 
     /* Remove vertical dashes (Zoho adds them sometimes) */
     hr, .zpdivider-container {
