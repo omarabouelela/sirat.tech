@@ -7,35 +7,36 @@
 
   <style>
     /* Navbar links */
-.nav-link {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom: 4px;
-}
+  /* Reset scroll issues */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;   /* stop sideways scroll */
+    overflow-y: auto;     /* only vertical if needed */
+    background: #000;     /* keep background consistent */
+  }
 
-.nav-link:hover {
-  color: #ffcc00;                /* gold hover */
-  border-bottom: 2px solid #ffcc00;
-}
+  /* Navbar links */
+  .nav-link {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 4px;
+  }
 
-.nav-link.active {
-  border-bottom: 3px solid #ffcc00; /* gold underline */
-  color: #ffcc00;                   /* gold text */
-}
+  /* Hover effect */
+  .nav-link:hover {
+    color: #ffcc00;                /* gold hover */
+    border-bottom: 2px solid #ffcc00;
+  }
 
-
-    /* Reset unwanted scrollbars */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;   /* stop sideways scroll */
-  overflow-y: auto;     /* only show vertical scroll if content really needs it */
-  background: #000;     /* match background if needed */
-}
-
+  /* Active highlight */
+  .nav-link.active {
+    border-bottom: 3px solid #ffcc00; /* gold underline */
+    color: #ffcc00;                   /* gold text */
+  }
 
     /* Section styling */
     section {
