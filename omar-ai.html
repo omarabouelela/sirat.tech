@@ -1,162 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Omar AI - Sirat Technologies</title>
 
-  <!-- Load Gradio Web Component -->
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js"></script>
-
   <style>
-    html {
-      scroll-behavior: smooth;
+    /* Navbar links */
+    .nav-link {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease, border-bottom 0.3s ease;
+      padding-bottom: 4px;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: url("ChatGPT%20Image%20Jul%2022-%202025-%2012_53_04%20AM.png") no-repeat center center fixed;
-      background-size: cover;
+    /* Active link */
+    .nav-link.active {
+      border-bottom: 3px solid #ffcc00; /* gold underline */
       color: #fff;
+    }
+
+    /* Reset unwanted scrollbars */
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      background: #000;
+    }
+
+    /* Section styling */
+    section {
+      padding: 100px 20px;
       text-align: center;
     }
 
-    /* NAVBAR */
-    nav {
+    /* Hero */
+    #omar-ai-hero {
+      min-height: 100vh;
       display: flex;
-      justify-content: flex-end;
-      padding: 15px 25px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: transparent;
-      transition: background 0.4s ease, box-shadow 0.4s ease;
-      z-index: 999;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      background: #fff;
-      color: #000;
-      padding: 8px 15px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-
-    nav a.active {
-      background: #444;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('ChatGPT%20Image%20Jul%2022-%202025-%2012_53_04%20AM.png') no-repeat center center;
+      background-size: cover;
       color: #fff;
     }
 
-    nav a:hover {
-      background: #444;
-      color: #fff;
-    }
-
-    /* HEADER */
-    h1 {
-      margin-top: 120px; /* offset for nav */
-      font-size: 2.5rem;
-    }
-
-    p {
-      font-style: italic;
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-
-    /* GRADIO APP */
-    gradio-app {
-      width: 90%;
-      max-width: 1200px;
-      height: 80vh;
-      border: 2px solid #fff;
+    /* Gradio Chat container */
+    .chat-container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #111;
+      padding: 20px;
       border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 100px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
     }
 
-    /* CONTACT SECTION */
-    #contact-us {
-      padding: 80px 20px;
-      background: rgba(0,0,0,0.85);
+    .chat-container iframe,
+    .chat-container gradio-app {
+      width: 100% !important;
+      height: 600px !important;
+      border: none;
     }
-    #contact-us h2 {
-      margin-bottom: 10px;
-    }
-    #contact-us p {
-      margin: 5px 0;
+
+    /* Remove vertical dashes (Zoho adds them sometimes) */
+    hr, .zpdivider-container {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav id="mainNav">
-    <a href="index.html">Home</a>
-    <a href="omar-ai.html" class="active">Omar AI</a>
-    <a href="#contact-us">Contact Us</a>
-  </nav>
 
-  <!-- CONTENT -->
+<!-- NAVBAR -->
+<nav id="mainNav" style="
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 999;
+">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="omar-ai.html" class="nav-link">Omar AI</a>
+  <a href="#contact-us" class="nav-link">Contact Us</a>
+</nav>
+
+<!-- HERO -->
+<section id="omar-ai-hero">
   <h1>👉 Chat to Omar Now!</h1>
-  <p>
-    It is actually his AI! How cool is that huh?! <br>
+  <p style="font-style: italic; margin-top: 10px; color: #ccc;">
+    It is actually his AI! How cool is that huh?!<br>
     Ask him about his career, goals, likes and dislikes, personality. Chat and have fun!
   </p>
 
-  <!-- EMBED HUGGING FACE APP -->
-  <gradio-app src="https://omarabouelela-careeragent.hf.space"></gradio-app>
+  <!-- Chat box -->
+  <div class="chat-container">
+    <script type="module"
+      src="https://gradio.s3-us-west-2.amazonaws.com/5.34.2/gradio.js">
+    </script>
+    <gradio-app src="https://omarabouelela-careeragent.hf.space"></gradio-app>
+  </div>
+</section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact-us">
-    <h2>Reach Out to Us</h2>
-    <p>📍 Alexandria | Cairo | Online Worldwide</p>
-    <p>📞 +20-109-3920761 | +20-358-52057</p>
-    <p>📧 hello@sirat.tech | support@sirat.tech</p>
-  </section>
+<!-- CONTACT -->
+<section id="contact-us" style="background:#000; color:#fff;">
+  <h2>Reach Out to Us</h2>
+  <p>We’re just a message away. Let’s build the future together.</p>
+  <p><strong>Email:</strong> hello@sirat.tech</p>
+  <p><strong>Phone:</strong> +20-109-3920761</p>
+</section>
 
-  <!-- SCROLL + HIGHLIGHT SCRIPT -->
-  <script>
-    const sections = document.querySelectorAll("section, gradio-app");
-    const navLinks = document.querySelectorAll("nav a");
+<script>
+  // Navbar background effect
+  window.addEventListener("scroll", function() {
+    const nav = document.getElementById("mainNav");
+    if (window.scrollY > 50) {
+      nav.style.background = "#111";  // dark grey background
+      nav.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
+    } else {
+      nav.style.background = "transparent";
+      nav.style.boxShadow = "none";
+    }
+  });
 
-    window.addEventListener("scroll", () => {
-      const nav = document.getElementById("mainNav");
-
-      // Navbar background on scroll
-      if (window.scrollY > 50) {
-        nav.style.background = "rgba(0,0,0,0.85)";
-        nav.style.boxShadow = "0 2px 6px rgba(0,0,0,0.3)";
-      } else {
-        nav.style.background = "transparent";
-        nav.style.boxShadow = "none";
-      }
-
-      // Highlight nav links
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (current && link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
-      });
-
-      // Keep Omar AI link highlighted by default
-      if (!current) {
-        document.querySelector('nav a[href="omar-ai.html"]').classList.add("active");
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 60;
+        smoothScrollTo(top, 800);
       }
     });
-  </script>
+  });
+
+  function smoothScrollTo(targetY, duration) {
+    const startY = window.pageYOffset;
+    const diff = targetY - startY;
+    let start;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const time = timestamp - start;
+      const percent = Math.min(time / duration, 1);
+      window.scrollTo(0, startY + diff * percent);
+      if (time < duration) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  // Active link highlighting
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = [...document.querySelectorAll("section[id]")];
+
+  function setActiveLink() {
+    let current = "omar-ai-hero";
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        current = sec.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current ||
+          (current === "omar-ai-hero" && link.getAttribute("href") === "omar-ai.html")) {
+        link.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", setActiveLink);
+  window.addEventListener("load", setActiveLink);
+</script>
+
 </body>
 </html>
