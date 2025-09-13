@@ -95,9 +95,11 @@
 </style>
 </head><body data-zs-home="false" data-zs-subsite="" data-zs-display-mode="default">
 <!-- NAVBAR -->
+<!-- NAVBAR -->
 <nav id="mainNav" style="
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;   /* keep items on the left */
+  align-items: center;
   padding: 15px 25px;
   position: fixed;
   top: 0;
@@ -107,31 +109,42 @@
   transition: background 0.4s ease, box-shadow 0.4s ease;
   z-index: 999;
 ">
+
+  <!-- Logo -->
+  <div style="font-size: 22px; font-weight: 800; color: #ffcc00; margin-right: 40px;">
+    SIRAT
+  </div>
+
+  <!-- Nav Links -->
   <a href="index.html" class="nav-link"
-     style="margin-left: 20px;
+     style="margin-right: 25px;
             text-decoration: none;
             color: #fff;
             font-weight: bold;
+            font-size: 18px;
             transition: color 0.3s ease;">
     Home
   </a>
   <a href="omar-ai.html" class="nav-link"
-     style="margin-left: 20px;
+     style="margin-right: 25px;
             text-decoration: none;
             color: #fff;
             font-weight: bold;
+            font-size: 18px;
             transition: color 0.3s ease;">
     Omar.AI
   </a>
   <a href="#contact-us" class="nav-link"
-     style="margin-left: 20px;
+     style="margin-right: 25px;
             text-decoration: none;
             color: #fff;
             font-weight: bold;
+            font-size: 18px;
             transition: color 0.3s ease;">
     Contact Us
   </a>
 </nav>
+
 
 <!-- JS for scroll effect -->
 <script>
