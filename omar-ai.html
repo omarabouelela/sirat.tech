@@ -86,11 +86,13 @@
     .chat-container gradio-app {
       width: 100% !important;
       max-width: 900px;
-      height: 80vh !important;
+      height: auto !important;     /* let content decide height */
+      min-height: 500px;           /* optional: ensures a decent starting size */
       border: none;
       display: block;
       margin: 0 auto;
     }
+
      /* Contact Us */
     #contact-us {
       background: #000;
