@@ -23,13 +23,14 @@
 
      /* Navbar links */
   .nav-link {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 4px;
-  }
+  font-size: 18px;            /* bigger text */
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 4px;
+}
+
 
   /* Hover effect */
   .nav-link:hover {
@@ -140,8 +141,9 @@
 <!-- NAVBAR -->
 <nav id="mainNav" style="
   display: flex;
-  justify-content: flex-end;
-  padding: 15px 25px;
+  justify-content: center;   /* centers nav items */
+  gap: 40px;                 /* spacing between links */
+  padding: 18px 0;           /* taller padding */
   position: fixed;
   top: 0;
   left: 0;
@@ -149,6 +151,7 @@
   background: transparent;
   transition: background 0.4s ease, box-shadow 0.4s ease;
   z-index: 999;
+  font-size: 18px;           /* match index font */
 ">
   <a href="index.html" class="nav-link"
      style="margin-left: 20px;
@@ -270,6 +273,21 @@
 
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
+</script>
+<script>
+  // Make sure page always starts at top
+  window.history.scrollRestoration = "manual";
+
+  window.addEventListener("load", function () {
+    window.scrollTo(0, 0);
+  });
+
+  // Also catch Gradio rendering which might re-scroll
+  const observer = new MutationObserver(() => {
+    window.scrollTo(0, 0);
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
 </script>
 
 
