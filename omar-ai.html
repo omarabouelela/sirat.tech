@@ -10,7 +10,25 @@
   <link rel="stylesheet" type="text/css" href="http://webfonts.zoho.com/css?family=Tenor%20Sans/Manrope:400,500,600,700,800&display=swap">
 
   <style>
-    
+    /* Mobile navbar fixes */
+@media (max-width: 768px) {
+  #mainNav {
+    flex-wrap: wrap;              /* allow wrapping */
+    justify-content: center;      /* center on mobile */
+    padding: 10px;
+  }
+
+  #mainNav .nav-link {
+    font-size: 14px;              /* smaller text */
+    margin: 8px;                  /* spacing between items */
+  }
+
+  #mainNav div { /* SIRAT logo */
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}
+
     html, body {
       margin: 0 !important;
       padding: 0 !important;
