@@ -46,87 +46,73 @@
     color: #ffcc00;                   /* gold text */
   }
     /* Navbar */
+/* Base navbar */
 #mainNav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* keep everything to the left */
   align-items: center;
   padding: 15px 25px;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   background: transparent;
   transition: background 0.4s ease, box-shadow 0.4s ease;
   z-index: 999;
 }
 
-/* Logo */
-.nav-logo {
+#mainNav .logo {
+  text-decoration: none;
+  color: #ffcc00;
   font-size: 22px;
   font-weight: 800;
-  color: #ffcc00;
-  text-decoration: none;
-  margin-right: 40px;
+  margin-right: 20px;  /* small gap between logo and links */
 }
 
-/* Links container */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
 
-/* Links */
-.nav-link {
-  font-size: 18px;
-  font-weight: 600;
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  padding-bottom: 4px;
-}
-.nav-link:hover {
-  color: #ffcc00;
-  border-bottom: 2px solid #ffcc00;
-}
-.nav-link.active {
-  color: #ffcc00;
-  border-bottom: 3px solid #ffcc00;
-}
-
-/* Hamburger icon */
+/* Hide hamburger by default (desktop) */
 .hamburger {
   display: none;
-  flex-direction: column;
+  font-size: 28px;
   cursor: pointer;
-  gap: 5px;
-}
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
+  color: #fff;
 }
 
-/* Mobile dropdown */
+/* Nav links inline (desktop) */
+.nav-links {
+  display: flex;
+}
+.nav-links a {
+  margin-left: 20px;
+}
+
+/* Mobile styles */
+/* Mobile styles */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block; /* show burger */
+  }
   .nav-links {
-    display: none;
+    display: none; /* hide by default */
     flex-direction: column;
-    background: #111;
     position: absolute;
-    top: 60px;
-    right: 25px;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    top: 60px; left: 0;
+    width: 100%;
+    background: #111;
+    padding: 15px 0;
+    transition: max-height 0.3s ease;  /* animation */
+    overflow: hidden;
+    font-size: 20px;
+    padding: 10px 0;
+  }
+  .nav-links a {
+    margin: 10px 20px;
+    display: block;
   }
   .nav-links.show {
-    display: flex;
-  }
-  .hamburger {
-    display: flex;
+    display: flex; /* show when toggled */
   }
 }
+
 
 
 
@@ -228,22 +214,19 @@
 <!-- NAVBAR -->
 <nav id="mainNav">
   <!-- Logo -->
-  <a href="index.html" class="nav-logo">SIRAT</a>
+  <a href="index.html" class="logo">SIRAT</a>
 
-  <!-- Hamburger -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+  <!-- Hamburger (only visible on mobile) -->
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
 
-  <!-- Nav Links -->
-  <div class="nav-links" id="navLinks">
+  <!-- Links -->
+  <div id="navLinks" class="nav-links">
     <a href="index.html" class="nav-link">Home</a>
     <a href="omar-ai.html" class="nav-link">Omar.AI</a>
     <a href="#contact-us" class="nav-link">Contact Us</a>
   </div>
 </nav>
+
 
 
 <!-- JS for scroll effect -->
@@ -356,6 +339,22 @@
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
+</script>
+<script>
+  function toggleMenu() {
+    const links = document.getElementById("navLinks");
+    links.classList.toggle("show");
+  }
+
+  // Close menu when a link is clicked (mobile)
+  document.querySelectorAll(".nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      const links = document.getElementById("navLinks");
+      if (links.classList.contains("show")) {
+        links.classList.remove("show");
+      }
+    });
+  });
 </script>
 
 
