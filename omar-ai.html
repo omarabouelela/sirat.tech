@@ -253,6 +253,13 @@
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
 </script>
+  
+<script>
+  window.addEventListener("load", function () {
+    // Force scroll to top after Gradio loads
+    window.scrollTo(0, 0);
+  });
+</script>
 
 </body>
 </html>
