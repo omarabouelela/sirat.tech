@@ -206,7 +206,7 @@
   });
 
 
-  // Smooth scroll
+    // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
       e.preventDefault();
@@ -217,10 +217,12 @@
       }
     });
   });
+
   function smoothScrollTo(targetY, duration) {
     const startY = window.pageYOffset;
     const diff = targetY - startY;
     let start;
+
     function step(timestamp) {
       if (!start) start = timestamp;
       const time = timestamp - start;
@@ -234,14 +236,16 @@
   // Active link highlighting
   const navLinks = document.querySelectorAll(".nav-link");
   const sections = [...document.querySelectorAll("section[id], div[id]")];
+
   function setActiveLink() {
-    let current = "home";
+    let current = "home"; // default to home at top
     sections.forEach(sec => {
       const rect = sec.getBoundingClientRect();
       if (rect.top <= 150 && rect.bottom >= 150) {
         current = sec.id;
       }
     });
+
     navLinks.forEach(link => {
       link.classList.remove("active");
       if (link.getAttribute("href") === "#" + current ||
@@ -251,16 +255,11 @@
       }
     });
   }
+
   window.addEventListener("scroll", setActiveLink);
   window.addEventListener("load", setActiveLink);
 </script>
-  
-<script>
-  window.addEventListener("load", function () {
-    // Force scroll to top after Gradio loads
-    window.scrollTo(0, 0);
-  });
-</script>
+
 
 </body>
 </html>
